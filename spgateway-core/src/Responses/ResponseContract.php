@@ -2,15 +2,16 @@
 
 namespace VeryBuy\Payment\Spgateway\Core\Responses;
 
-use stdClass;
 use Illuminate\Contracts\Support\Arrayable;
+use VeryBuy\Payment\Spgateway\Core\Responses\CanControlError;
 use VeryBuy\Payment\Spgateway\Core\Responses\CanUseCvs;
 use VeryBuy\Payment\Spgateway\Core\Responses\CommonUsable;
 use VeryBuy\Payment\Spgateway\Core\Responses\InterfaceResponse;
+use stdClass;
 
 abstract class ResponseContract implements InterfaceResponse, Arrayable
 {
-    use CommonUsable, CanUseCvs;
+    use CommonUsable, CanUseCvs, CanControlError;
 
     /**
      * @var string
@@ -45,11 +46,19 @@ abstract class ResponseContract implements InterfaceResponse, Arrayable
     }
 
     /**
+     * @return string
+     */
+    public function getStatus(): string
+    {
+        return $this->parsed->Status;
+    }
+
+    /**
      * @return boolean
      */
     public function isSuccess(): bool
     {
-        return ($this->parsed->Status === InterfaceResponse::RESPONSE_SUCCESS);
+        return ($this->getStatus() === InterfaceResponse::RESPONSE_SUCCESS);
     }
 
     /**

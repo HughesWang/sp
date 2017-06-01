@@ -6,6 +6,9 @@ use OutOfRangeException;
 
 trait CanControlError
 {
+    /**
+     * @var array
+     */
     protected $errors = [
         'MPG01001' => '會員參數不可空白/設定錯誤(LoginType)',
         'MPG01002' => '時間戳記不可空白(TimeStamp)',

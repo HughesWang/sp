@@ -4,7 +4,10 @@ namespace Tests\Payment\Spgateway\Core;
 
 class RequestBuilderTest extends AbstractTestCase
 {
-    public function testRequestBuilder()
+	/**
+	 * @test
+	 */
+    public function 測試RequestBuilder()
     {
     }
 }

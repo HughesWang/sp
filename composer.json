@@ -8,7 +8,7 @@
         }
     ],
     "require": {
-        "hughes/spgateway-core": "*@dev"
+        "hughes/spgateway-core": "~1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~5.5",
@@ -22,14 +22,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\Payment\\Spgateway\\Core\\": "./spgateway-core/tests/",
             "Tests\\Payment\\Spgateway\\Store\\": "tests/"
         }
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "./spgateway-core"
-        }
-    ]
+    }
 }
